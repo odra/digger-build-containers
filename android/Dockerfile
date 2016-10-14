@@ -30,6 +30,13 @@ RUN yum install -y \
   java-1.8.0-openjdk \
   ant
 
+# install node 4.x
+RUN curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+RUN yum -y install nodejs
+
+# install Cordova CLI
+RUN npm install -g cordova@6
+
 #android tools
 ENV PATH ${PATH}:${AG_MOBILE_SDK}/tools
 
